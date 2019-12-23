@@ -1,5 +1,6 @@
 (function () {
     require.config({
+		waitSeconds:30,
         paths: {
             'jquery': '../bower_components/jquery/dist/jquery',
             'angular': '../bower_components/angular/angular',
@@ -22,7 +23,6 @@
             'nvd3': '../bower_components/nvd3/nv.d3',
             'nvd3ChartDirectives': '../scripts/modules/angularjs-nvd3-directives',
             'styles': '../styles',
-            'test': '../../test/functional',
             'notificationWidget': '../scripts/modules/notificationWidget',
             'configurations': '../scripts/modules/configurations',
             'angularFileUpload': '../bower_components/angularjs-file-upload/ng-file-upload',
@@ -127,11 +127,7 @@
 
     require(['mifosXComponents'], function (componentsInit) {
         componentsInit().then(function(){
-            require(['test/testInitializer'], function (testMode) {
-                if (!testMode) {
-                    angular.bootstrap(document, ['MifosX_Application']);
-                }
-            });
+			angular.bootstrap(document, ['MifosX_Application']);
         });
     });
 }());

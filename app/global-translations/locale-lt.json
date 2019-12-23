@@ -1352,6 +1352,7 @@
 	"label.anchor.addressConfiguration": "Adreso konfigūracija",
 	"label.anchor.fieldconfiguration": "Subjekto Lauko Konfigūracija",
 	"label.input.addressType": "Adreso Tipas",
+  	"label.input.street": "Street",
 	"label.input.addressline1": "Adreso 1 Eilutė",
 	"label.input.addressline2": "Adreso 2 Eilutė",
 	"label.input.addressline3": "Adreso 3 Eilutė",

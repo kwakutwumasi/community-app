@@ -2563,6 +2563,7 @@
 	"label.anchor.fieldconfiguration": "Configuration du champ entité",
 	"label.input.addressType": "Type d’adresse",
 	"label.input.clientIdNameOffice": "Client Id-Nom-Bureau",
+  	"label.input.street": "Street",
 	"label.input.addressline1": "Ligne d’adresse 1",
 	"label.input.addressline2": "Ligne d’adresse 2",
 	"label.input.addressline3": "Ligne d’adresse 3",

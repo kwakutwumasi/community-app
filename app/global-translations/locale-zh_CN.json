@@ -1965,6 +1965,7 @@
 	"label.anchor.fieldconfiguration": "实体字段配置",
 	"label.input.addressType": "地址类型",
 	"label.input.clientIdNameOffice": "客户ID-名字-办公室",
+  	"label.input.street": "Street",
 	"label.input.addressline1": "地址行1",
 	"label.input.addressline2": "地址行2",
 	"label.input.addressline3": "地址行3",

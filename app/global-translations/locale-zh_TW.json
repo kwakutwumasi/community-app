@@ -2541,6 +2541,7 @@
 	"label.anchor.fieldconfiguration": "項目欄位設置",
 	"label.input.addressType": "地址類型",
 	"label.input.clientIdNameOffice": "客戶 ID-名稱-營業處",
+  	"label.input.street": "Street",
 	"label.input.addressline1": "地址 (第 1 行)",
 	"label.input.addressline2": "地址 (第 2 行)",
 	"label.input.addressline3": "地址 (第 3 行)",

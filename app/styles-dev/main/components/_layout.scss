@@ -6,10 +6,6 @@
   }
 }
 
-.navbar-default .navbar-nav .open .dropdown-menu > li > a, .navbar-default .navbar-nav > li > a{
-  color: #4f99ed !important;
-}
-
 #mifos-reskin-ui-container{
   position:absolute;
   top:52px;
@@ -50,7 +46,7 @@ $sidebar-hover-width : 240px;
     overflow: auto;
     overflow-x: hidden;
 
-    background: rgba(8,35,49,1);
+    background: #343434;
 
     border-right:1px solid #e0e0e0;
     -webkit-transition-duration: 500ms;

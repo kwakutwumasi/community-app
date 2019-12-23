@@ -267,6 +267,7 @@
 	"label.input.additionalfilter": "ထပ်ဆောင်း ရှာဖွေစစ်ထုတ်ရန်",
 	"label.input.additionalinformation": "ထပ်ဆောင်းသတင်းအချက်အလက်",
 	"label.anchor.addressConfiguration": "လိပ်စာဖြည့်စွက်ရန် စီစဉ်ထားရှိမှု",
+  	"label.input.street": "Street",
 	"label.input.addressline1": "လိပ်စာလိုင်းနံပါတ် ၁",
 	"label.input.addressline2": "လိပ်စာလိုင်းနံပါတ် ၂",
 	"label.input.addressline3": "လိပ်စာလိုင်းနံပါတ် ၃",

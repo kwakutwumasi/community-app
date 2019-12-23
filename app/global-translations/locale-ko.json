@@ -627,6 +627,7 @@
 	"label.anchor.accountNumberPreferences": "계좌 번호 환경 설정",
 	"label.anchor.externalServices": "외부 서비스",
 	"label.anchor.addressConfiguration": "주소 구성",
+  	"label.input.street": "Street",
 	"label.input.addressline1": "주소 입력란 1",
 	"label.input.addressline2": "주소 입력란 2",
 	"label.input.addressline3": "주소 입력란 3",
