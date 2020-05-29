@@ -65,6 +65,36 @@
                             <td>{{transferData.toAccount.accountNo}}</td>
                         </tr>
                     </table>
+                    <table class="width100" ng-show="transferData.paymentDetailData">
+			            <tr>
+			                <td class="width20"><strong>{{ 'label.heading.paymentdetails' | translate}}</strong></td>
+			                <td class="width80"></td>
+			            </tr>
+			            <tr ng-show="transferData.paymentDetailData.paymentType">
+			                <td>{{ 'label.heading.type' | translate}}</td>
+			                <td>{{transferData.paymentDetailData.paymentType.name}}</td>
+			            </tr>
+			            <tr ng-show="transferData.paymentDetailData.accountNumber">
+			                <td>{{ 'label.heading.accnum' | translate}}</td>
+			                <td>{{transferData.paymentDetailData.accountNumber}}</td>
+			            </tr>
+			            <tr ng-show="transferData.paymentDetailData.checkNumber">
+			                <td>{{ 'label.heading.checknumber' | translate}}</td>
+			                <td>{{transferData.paymentDetailData.checkNumber}}</td>
+			            </tr>
+			            <tr ng-show="transferData.paymentDetailData.routingCode">
+			                <td>{{ 'label.heading.routingcode' | translate}}</td>
+			                <td>{{transferData.paymentDetailData.routingCode}}</td>
+			            </tr>
+			            <tr ng-show="transferData.paymentDetailData.receiptNumber">
+			                <td>{{ 'label.heading.receiptnumber' | translate}}</td>
+			                <td>{{transferData.paymentDetailData.receiptNumber}}</td>
+			            </tr>
+			            <tr ng-show="transferData.paymentDetailData.bankNumber">
+			                <td>{{ 'label.heading.banknumber' | translate}}</td>
+			                <td>{{transferData.paymentDetailData.bankNumber}}</td>
+			            </tr>
+			        </table>
                 </div>
             </div>
         </div>
