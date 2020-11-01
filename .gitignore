@@ -38,6 +38,7 @@ gems.locked
 .grunt/
 /.settings/
 .classpath
+.project
 /.externalToolBuilders/
 /webservers/
 tmlog*
