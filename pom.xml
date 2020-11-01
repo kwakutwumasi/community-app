@@ -8,6 +8,14 @@
 	<name>Communuty App Microserver</name>
 	<description>QA-Appbase Microserver for Fineract Community App</description>
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.8</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -16,6 +24,80 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>repo</classpathPrefix>
+							<classpathLayoutType>repository</classpathLayoutType>
+							<mainClass>com.quakearts.auth.server.totp.TOTPMain</mainClass>
+						</manifest>
+						<manifestEntries>
+							<Class-Path>etc/</Class-Path>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<configuration>
+					<assembleDirectory>target</assembleDirectory>
+					<extraJvmArguments></extraJvmArguments>
+					<programs>
+						<program>
+							<id>webapp</id>
+							<mainClass>com.quakearts.microservers.CommunityAppMain</mainClass>
+						</program>
+					</programs>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>assemble</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>Copy Folders</id>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target name="Copy Web Files">
+								<echo>Creating server folders and files</echo>
+								<copy toDir="target/webservers/webserver/webapps/webapp" overwrite="true">
+									<fileset dir="app" />
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+					<execution>
+						<id>Copy Test Folders</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target name="Copy Web Files">
+								<echo>Creating test server folders and files</echo>
+								<copy toDir="webservers/webserver/webapps/webapp" overwrite="true">
+									<fileset dir="app" />
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
