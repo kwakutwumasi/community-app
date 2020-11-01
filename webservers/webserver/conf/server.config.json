@@ -1,0 +1,8 @@
+{
+	"port":8000,
+	"usessl":true,
+	"sslHostConfig.certificateKeystoreFile":"webservers/webserver/conf/keystore.jks",
+	"sslHostConfig.certificateKeystoreType":"JKS",
+	"sslHostConfig.certificateKeystorePassword":"openmf",
+	"sslHostConfig.sslProtocol":"TLSv1.2"
+}

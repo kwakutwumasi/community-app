@@ -40,5 +40,5 @@ gems.locked
 .classpath
 .project
 /.externalToolBuilders/
-/webservers/
+/webservers/webserver/webapps/webapp/
 tmlog*
