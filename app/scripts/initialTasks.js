@@ -2,13 +2,13 @@
 (function (mifosX) {
     var defineHeaders = function ($httpProvider, $translateProvider, ResourceFactoryProvider, HttpServiceProvider, $idleProvider, $keepaliveProvider, IDLE_DURATION, WARN_DURATION, KEEPALIVE_INTERVAL) {
         var mainLink = getLocation(window.location.href);
-        var baseApiUrl = "https://mifos.server:8443";
+        var baseApiUrl = "https://localhost:8443";
         var host = "";
         var portNumber = "";
-        if (mainLink.hostname != "") {
+/*        if (mainLink.hostname != "") {
             baseApiUrl = "https://" + mainLink.hostname + (mainLink.port ? ':' + mainLink.port : '');
         }
-
+*/
         if (QueryParameters["baseApiUrl"]) {
             baseApiUrl = QueryParameters["baseApiUrl"];
         }

@@ -32,9 +32,9 @@
 	},
 	"whiteLabel": {
 		"loginPage":{
-			"hideCommunityDetails": false,
-			"releaseDetails": false,
-			"companyName": "Mifos"
+			"hideCommunityDetails": true,
+			"releaseDetails": true,
+			"companyName": "QuakeArts.com"
 		}
 	}
   }

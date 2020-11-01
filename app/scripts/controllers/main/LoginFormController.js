@@ -13,6 +13,8 @@
             scope.otpToken = null;
             scope.selectedDeliveryMethodName = null;
             scope.twofactorRememberMe = false;
+			scope.totpDirect = false;
+			scope.totpToken = false;
 
             scope.login = function () {
                 scope.authenticationFailed = false;
@@ -80,24 +82,40 @@
 
             // Move to auth service probably
             scope.requestOTP = function () {
-                if(scope.selectedDeliveryMethodName != null) {
-                    scope.load = true;
-                    resourceFactory.twoFactorResource.requestOTP({deliveryMethod: scope.selectedDeliveryMethodName, extendedToken: scope.twofactorRememberMe}, function (data) {
-                        scope.load = false;
-                        if(data.deliveryMethod !== null) {
-                            scope.otpRequestData.deliveryMethod = data.deliveryMethod;
-                            scope.otpRequestData.expireDate = new Date(data.reqestTime + data.tokenLiveTimeInSec * 1000);
-                            scope.otpRequested = true;
-                        }
-                    });
-                    scope.selectedDeliveryMethodName = null;
+                if(scope.selectedDeliveryMethod != null) {
+					var selectedDeliveryMethod = JSON.parse(scope.selectedDeliveryMethod);
+					if(selectedDeliveryMethod.name === 'totp'){
+						scope.otpRequested = true;
+						if(selectedDeliveryMethod.target === 'direct'){
+							scope.load = true;
+							scope.totpDirect = true;
+							authenticationService.validateTOTPDirect(scope.twofactorRememberMe);
+						} else {
+							scope.totpToken = true;
+						}
+					} else {
+	                    scope.load = true;
+	                    resourceFactory.twoFactorResource.requestOTP({deliveryMethod: selectedDeliveryMethod.name, extendedToken: scope.twofactorRememberMe}, function (data) {
+	                        scope.load = false;
+	                        if(data.deliveryMethod !== null) {
+	                            scope.otpRequestData.deliveryMethod = data.deliveryMethod;
+	                            scope.otpRequestData.expireDate = new Date(data.reqestTime + data.tokenLiveTimeInSec * 1000);
+	                            scope.otpRequested = true;
+	                        }
+	                    });
+					}
+                    scope.selectedDeliveryMethod = null;
                 }
             };
 
             scope.validateOTP = function () {
                 if(scope.otpToken !== null) {
                     scope.load = true;
-                    authenticationService.validateOTP(scope.otpToken, scope.twofactorRememberMe);
+					if(scope.totpToken || scope.totpDirect){
+						authenticationService.validateTOTP(scope.otpToken, scope.twofactorRememberMe);
+					} else {
+                    	authenticationService.validateOTP(scope.otpToken, scope.twofactorRememberMe);
+					}
                 }
             };
 

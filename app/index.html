@@ -136,7 +136,7 @@
                                         <div ng-repeat="deliveryMethod in twoFactorDeliveryMethods" class="radio form-group">
                                             <label for="{{deliveryMethod.name}}">
                                             <input type="radio" id="{{deliveryMethod.name}}" name="otpDeliveryMethods"
-                                                   ng-model="$parent.selectedDeliveryMethodName" value="{{deliveryMethod.name}}">
+                                                   ng-model="$parent.selectedDeliveryMethod" value="{{deliveryMethod}}">
                                                 {{'label.otp.delivery.select.' + deliveryMethod.name | translate:deliveryMethod}}</label>
                                         </div>
                                         <div class="checkbox form-group">
@@ -164,7 +164,7 @@
                             <hr>
                             <h4>{{'label.heading.twofactor' | translate}}</h4>
                             <p>
-                                {{'label.otp.verify.info' | translate}}
+                                {{'label.otp.verify.info' | translate:totpDirect}}
                             </p>
 
                             <div class="alert alert-danger" ng-show="otpTokenError">
@@ -175,7 +175,7 @@
                                 <div class="form-group">
                                     <label for="otpToken">{{'label.otp.token' | translate}}</label>
                                     <input type="text" id="otpToken" name="otpDeliveryMethods" class="form-control"
-                                           ng-model="otpToken">
+                                           ng-model="otpToken" ng-disabled="load">
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-block btn-primary" type="submit" data-ng-show="!load" data-ng-click="validateOTP()"

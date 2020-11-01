@@ -140,6 +140,20 @@
                     .error(onOTPValidateError);
             };
 
+			this.validateTOTP = function (token, rememberMe) {
+                twoFactorIsRememberMeRequest = rememberMe;
+                httpService.post(apiVer + "/twofactor/validate?token=" + token +"&type=totptoken")
+                    .success(onOTPValidateSuccess)
+                   .error(onOTPValidateError);
+            };
+
+			this.validateTOTPDirect = function (rememberMe) {
+                twoFactorIsRememberMeRequest = rememberMe;
+                httpService.post(apiVer + "/twofactor/validate?type=direct")
+                    .success(onOTPValidateSuccess)
+                    .error(onOTPValidateError);
+            };
+
             scope.$on("OnUserPreLogout", function (event) {
                 var userDate = localStorageService.getFromLocalStorage("userData");
 
