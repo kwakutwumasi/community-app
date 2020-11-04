@@ -34,7 +34,7 @@
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>repo</classpathPrefix>
 							<classpathLayoutType>repository</classpathLayoutType>
-							<mainClass>com.quakearts.auth.server.totp.TOTPMain</mainClass>
+							<mainClass>com.quakearts.microservers.CommunityAppMain</mainClass>
 						</manifest>
 						<manifestEntries>
 							<Class-Path>etc/</Class-Path>
