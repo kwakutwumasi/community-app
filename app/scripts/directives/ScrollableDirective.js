@@ -39,7 +39,6 @@ Reference from JSfiddle : https://jsfiddle.net/sonicblis/2afea34h/9/
                        var differenceX = $event.pageX - dragInfo.lastPageX;
 
                        dragInfo.lastPageX = $event.pageX;
-                       dragInfo.moved = true;
 
                        navTabsElement.scrollLeft -= differenceX;
                    }
@@ -51,21 +50,6 @@ Reference from JSfiddle : https://jsfiddle.net/sonicblis/2afea34h/9/
 
                        $document.off('mousemove', onDocumentMouseMove);
                        $document.off('mouseup', onDocumentMouseUp)
-                       
-                       if (dragInfo.moved === true) {
-                           [].forEach.call(navTabsElement.querySelectorAll('li a'), function(anchor) {
-                               var anchorScope = angular.element(anchor).scope();
-                               anchorScope.oldDisabled = anchorScope.disabled;
-                               anchorScope.disabled = true;
-                           });
-                           $timeout(function() {
-                               [].forEach.call(navTabsElement.querySelectorAll('li a'), function(anchor) {
-                                   var anchorScope = angular.element(anchor).scope();
-                                   anchorScope.disabled = anchorScope.oldDisabled;
-                                   delete anchorScope.oldDisabled;
-                               });
-                           });
-                       }
                    }
 
                    function onNavTabsMouseDown($event) {
@@ -75,7 +59,6 @@ Reference from JSfiddle : https://jsfiddle.net/sonicblis/2afea34h/9/
                            $event.preventDefault();
 
                            dragInfo.lastPageX = $event.pageX;
-                           dragInfo.moved = false;
 
                            $document.on('mousemove', onDocumentMouseMove);
                            $document.on('mouseup', onDocumentMouseUp);
