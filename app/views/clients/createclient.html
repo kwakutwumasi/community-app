@@ -547,14 +547,14 @@
             </form>
         </div>
     </wz-step>
-    <wz-step ng-if="datatables" ng-repeat="datatable in datatables" icon="fa fa-circle-o" wz-title="{{datatable.registeredTableName}}">
+    <wz-step ng-if="datatables" ng-repeat="datatable in datatables" icon="fa fa-circle-o" wz-title="{{datatable.registeredTableName | prettifyName}}">
     	<div class="card-content">
 		   <form class="form-horizontal" ng-submit="submit()">
 		      <api-validate></api-validate>
 		      <fieldset>
 		      	<legend>{{datatable.registeredTableName}}</legend>
 		        <div class="form-group" ng-repeat="columnHeader in datatable.columnHeaderData">
-		            <label class="control-label col-sm-3">{{ columnHeader.columnName | prettifyDataTableColumn }}
+		            <label class="control-label col-sm-3">{{ columnHeader.columnName | prettifyName }}
 		            <span ng-show="!columnHeader.isColumnNullable" class="required">*</span>
 		            </label>
 		            <div class="col-sm-3">

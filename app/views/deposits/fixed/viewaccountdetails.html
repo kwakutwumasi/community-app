@@ -390,11 +390,11 @@
                         </tbody>
                     </table>
                 </uib-tab>
-                <uib-tab heading="{{savingdatatable.registeredTableName}}"
+                <uib-tab heading="{{savingdatatable.registeredTableName | prettifyName}}"
                          ng-repeat="savingdatatable in savingdatatables"
                          select="dataTableChange(savingdatatable)">
                     <br>
-                    <label><strong>{{savingdatatable.registeredTableName}}</strong></label>
+                    <label><strong>{{savingdatatable.registeredTableName | prettifyName}}</strong></label>
                     <span data-ng-show="choice">
                 <a ng-show="datatabledetails.isData" class="btn btn-danger pull-right"
                    ng-click="deleteAll(savingdatatable.registeredTableName, savingaccountdetails.id)"><i

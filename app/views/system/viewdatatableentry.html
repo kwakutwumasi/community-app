@@ -34,7 +34,7 @@
                     <hr>
                     <table class="width100">
                         <tr ng-repeat="column in columnHeaders">
-                            <td class="width30">{{column.columnName | prettifyDataTableColumn}}:</td>
+                            <td class="width30">{{column.columnName | prettifyName}}:</td>
                             <td class="width60" valign="top">{{column.value}}</td>
                         </tr>
                     </table>
@@ -46,7 +46,7 @@
                         <legend>{{ 'label.heading.datatablename' | translate }}-<strong>{{tableName}}</strong></legend>
                     </fieldset>
                     <div class="form-group" ng-repeat="columnHeader in columnHeaders">
-                        <label class="control-label col-sm-3">{{ columnHeader.columnName | prettifyDataTableColumn}}
+                        <label class="control-label col-sm-3">{{ columnHeader.columnName | prettifyName}}
                             <span ng-show="!columnHeader.isColumnNullable" class="required">*</span>
                         </label>
 

@@ -972,7 +972,7 @@
                             </tbody>
                         </table>
                     </uib-tab>
-                    <uib-tab heading="{{loandatatable.registeredTableName}}" ng-repeat="loandatatable in loandatatables" has-permission='READ_{{loandatatable.registeredTableName}}'
+                    <uib-tab heading="{{loandatatable.registeredTableName | prettifyName}}" ng-repeat="loandatatable in loandatatables" has-permission='READ_{{loandatatable.registeredTableName}}'
                          select="dataTableChange(loandatatable)">
                         <api-validate></api-validate>
                         <div>
@@ -995,7 +995,7 @@
                             <div ng-show="datatabledetails.isData">
                                 <table data-ng-show="datatabledetails.isMultirow" class="table">
                                     <thead>
-                                    <th ng-repeat="column in datatabledetails.columnHeaders">{{column.columnName | prettifyDataTableColumn}}</th>
+                                    <th ng-repeat="column in datatabledetails.columnHeaders">{{column.columnName | prettifyName}}</th>
                                     </thead>
                                     <tbody>
                                     <tr class="pointer-main" ng-repeat="data in datatabledetails.data">
@@ -1007,7 +1007,7 @@
                                 </table>
                                 <table class="table table-bordered" data-ng-show="!datatabledetails.isMultirow" style="width: 450px">
                                     <tr ng-repeat="value in singleRow">
-                                        <td class="graybg" style="font-weight: bold">{{value.key | prettifyDataTableColumn}}</td>
+                                        <td class="graybg" style="font-weight: bold">{{value.key | prettifyName}}</td>
                                         <td><span class="padded-td">{{value.value}}</span></td>
                                     </tr>
                                 </table>

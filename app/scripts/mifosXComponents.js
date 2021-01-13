@@ -349,6 +349,7 @@ define(['Q', 'underscore', 'mifosX'], function (Q) {
             'CkEditorDirective',
             'AutofocusDirective',
             'SummaryDirective',
+            'FormatDatatableNameDirective',
             'FormValidateDirective',
             'FormSubmitValidateDirective',
             'ApiValidationDirective',

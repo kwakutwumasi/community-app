@@ -2,17 +2,17 @@
     <ul class="breadcrumb">
         <li><a href="#/system">{{'label.anchor.system' | translate}}</a></li>
         <li><a href="#/datatables">{{'label.anchor.managedatatables' | translate}}</a></li>
-        <li class="active">{{datatable.registeredTableName}}</li>
+        <li class="active">{{datatable.registeredTableName | prettifyName}}</li>
     </ul>
     <div class="card">
         <div class="content">
             <div class="toolbar">
-                <h4>{{datatable.registeredTableName}}</h4>
+                <h4>{{datatable.registeredTableName | prettifyName}}</h4>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-6">
-                    <strong>{{'label.heading.associatedwith' | translate}}</strong>&nbsp;&nbsp;{{datatable.applicationTableName}}
+                    <strong>{{'label.heading.associatedwith' | translate}}</strong>&nbsp;&nbsp;{{datatable.applicationTableName | translate}}
                 </div>
                 <div class="col-md-6">
                     <div class="pull-right">
@@ -39,10 +39,10 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="column in datatable.columnHeaderData">
-                        <td>{{column.columnName}}</td>
+                        <td>{{column.columnName | prettifyName}}</td>
                         <td>{{column.columnDisplayType}}</td>
                         <td>{{column.columnLength}}</td>
-                        <td>{{column.columnCode}}</td>
+                        <td>{{column.columnCode | translate}}</td>
                         <td>{{!column.isColumnNullable}}</td>
                     </tr>
                 </tbody>

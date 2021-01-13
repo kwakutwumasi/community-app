@@ -324,15 +324,15 @@
                 </fieldset>
             </form>
         </wz-step>
-        <wz-step icon="fa fa-circle-o" wz-disabled="{{disabled}}" ng-repeat="datatable in datatables" wz-title="{{datatable.registeredTableName}}"
+        <wz-step icon="fa fa-circle-o" wz-disabled="{{disabled}}" ng-repeat="datatable in datatables" wz-title="{{datatable.registeredTableName | prettifyName}}"
             id="dynamicSteps">
             <form name="Datatables" class="form-horizontal" ng-submit="submit()">
                 <fieldset>
                     <api-validate></api-validate>
-                    <!--<h3><strong>{{datatable.registeredTableName}}</strong></h3>-->
+                    <!--<h3><strong>{{datatable.registeredTableName | prettifyName}}</strong></h3>-->
                     <hr/>
                     <div class="form-group" ng-repeat="columnHeader in datatable.columnHeaderData">
-                        <label class="control-label col-sm-3">{{ columnHeader.columnName | prettifyDataTableColumn }}
+                        <label class="control-label col-sm-3">{{ columnHeader.columnName | prettifyName }}
                             <span ng-show="!columnHeader.isColumnNullable" class="required">*</span>
                         </label>
 
@@ -547,7 +547,7 @@
                             </td>
                         </tr>
                         <tr ng-repeat="columnHeader in datatable.columnHeaderData">
-                            <td colspan="6">{{ columnHeader.columnName | prettifyDataTableColumn }}</td>
+                            <td colspan="6">{{ columnHeader.columnName | prettifyName }}</td>
                             <td ng-hide="fieldType(columnHeader.columnDisplayType) == 'DATETIME' || fieldType(columnHeader.columnDisplayType) == 'DATE'">{{formData.datatables[datatables.indexOf(datatable)].data[columnHeader.columnName]}}</td>
                             <td ng-show="fieldType(columnHeader.columnDisplayType) == 'DATETIME'">{{formData.datatables[datatables.indexOf(datatable)].data[columnHeader.columnName].date | DateFormat}}
                                 {{formData.datatables[datatables.indexOf(datatable)].data[columnHeader.columnName].time }}</td>

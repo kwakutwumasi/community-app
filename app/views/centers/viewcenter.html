@@ -285,7 +285,7 @@
                         </div>
                     </div>
                 </uib-tab>
-                <uib-tab heading="{{centerdatatable.registeredTableName}}" ng-repeat="centerdatatable in centerdatatables" has-permission='READ_{{centerdatatable.registeredTableName}}' select="dataTableChange(centerdatatable)">
+                <uib-tab heading="{{centerdatatable.registeredTableName | prettifyName}}" ng-repeat="centerdatatable in centerdatatables" has-permission='READ_{{centerdatatable.registeredTableName}}' select="dataTableChange(centerdatatable)">
                     <div data-ng-hide="isClosedCenter" class="btn-group pull-right">
                         <a ng-show="datatabledetails.isData" class="btn btn-danger pull-right" ng-click="deleteAll(centerdatatable.registeredTableName, center.id)" has-permission='DELETE_{{centerdatatable.registeredTableName}}'><i class="fa fa-trash "></i>{{'label.button.deleteall' | translate}}</a>
                         <a data-ng-show="showDataTableAddButton" ng-href="#/makedatatableentry/{{centerdatatable.registeredTableName}}/{{center.id}}?fromEntity=center" class="btn btn-primary" has-permission='CREATE_{{centerdatatable.registeredTableName}}'><i
@@ -298,7 +298,7 @@
                     <div data-ng-show="datatabledetails.isData">
                         <table class="table" data-ng-show="datatabledetails.isMultirow">
                             <thead>
-                                <th ng-repeat="column in datatabledetails.columnHeaders">{{column.columnName | prettifyDataTableColumn}}</th>
+                                <th ng-repeat="column in datatabledetails.columnHeaders">{{column.columnName | prettifyName}}</th>
                             </thead>
                             <tbody>
                                 <tr class="pointer-main" ng-repeat="data in datatabledetails.data">
@@ -308,7 +308,7 @@
                         </table>
                         <table class="table table-bordered" data-ng-hide="datatabledetails.isMultirow">
                             <tr ng-repeat="value in singleRow">
-                                <td class="graybg table-font-nav">{{value.key | prettifyDataTableColumn}}</td>
+                                <td class="graybg table-font-nav">{{value.key | prettifyName}}</td>
                                 <td><span class="padded-td">{{value.value}}</span>
                                 </td>
                             </tr>

@@ -1,4 +1,4 @@
-<div class="content-container" ng-controller="DataTableController">
+ <div class="content-container" ng-controller="DataTableController">
     <ul class="breadcrumb">
         <li><a href="#/system">{{'label.anchor.system' | translate}}</a></li>
         <li class="active">{{'label.anchor.managedatatables' | translate}}</li>
@@ -25,8 +25,8 @@
                 </thead>
                 <tbody>
                 <tr class="pointer-main" dir-paginate="datatable in datatables | orderBy:'registeredTableName':reverse | filter:{registeredTableName:filterText} |  itemsPerPage: DataTablesPerPage">
-                    <td class="pointer" data-ng-click="routeTo(datatable.registeredTableName)">{{datatable.registeredTableName}}</td>
-                    <td class="pointer" data-ng-click="routeTo(datatable.registeredTableName)">{{datatable.applicationTableName}}</td>
+                    <td class="pointer" data-ng-click="routeTo(datatable.registeredTableName)">{{datatable.registeredTableName | prettifyName}}</td>
+                    <td class="pointer" data-ng-click="routeTo(datatable.registeredTableName)">{{datatable.applicationTableName | translate}}</td>
                 </tr>
                 </tbody>
             </table>

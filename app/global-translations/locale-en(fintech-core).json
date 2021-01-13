@@ -4068,5 +4068,10 @@
   "label.button.selfserviceactivatehelp": "Activate Self Service User Help",
   "label.createdselfserviceuser": "Self Service User created successfully",
   "label.otp.delivery.select.totp":"Authenticate via TOTP Device {{target == 'direct'?' directly':' using a token'}}",
+  "ADDRESS_TYPE":"Address Type",
+  "COUNTRY":"Country",
+  "PROFESSION":"Profession",
+  "RELATIONSHIP":"Relationship",
+  "STATE":"State",
   "----End---": "--End of file--- "
 }

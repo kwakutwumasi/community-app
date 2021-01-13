@@ -1185,7 +1185,7 @@
 					  <object height="60%" width="70%" ng-show="preview" data="{{fileUrl}}" type="{{fileType}}"></object>
 				  </div>
 				</uib-tab>
-				<uib-tab heading="{{clientdatatable.registeredTableName}}" ng-repeat="clientdatatable in clientdatatables"
+				<uib-tab heading="{{clientdatatable.registeredTableName | prettifyName}}" ng-repeat="clientdatatable in clientdatatables"
 						 select="dataTableChange(clientdatatable)" has-permission='READ_{{clientdatatable.registeredTableName}}'>
 					<api-validate></api-validate>
 					<div>
@@ -1208,7 +1208,7 @@
 						<div ng-show="datatabledetails.isData">
 							<table class="table" data-ng-show="datatabledetails.isMultirow">
 								<thead>
-								<th ng-repeat="column in datatabledetails.columnHeaders">{{column.columnName | prettifyDataTableColumn}}</th>
+								<th ng-repeat="column in datatabledetails.columnHeaders">{{column.columnName | prettifyName}}</th>
 								</thead>
 								<tbody>
 								<tr class="pointer-main" ng-repeat="data in datatabledetails.data">
@@ -1220,7 +1220,7 @@
 							</table>
 							<table class="table table-bordered width450px" data-ng-hide="datatabledetails.isMultirow">
 								<tr ng-repeat="value in singleRow">
-									<td class="graybg table-font-nav">{{value.key | prettifyDataTableColumn}}</td>
+									<td class="graybg table-font-nav">{{value.key | prettifyName}}</td>
 									<td><span class="padded-td">{{value.value}}</span></td>
 								</tr>
 							</table>

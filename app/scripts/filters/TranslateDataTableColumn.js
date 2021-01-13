@@ -1,6 +1,6 @@
 (function (module) {
     mifosX.filters = _.extend(module, {
-        prettifyDataTableColumn: function () {
+        prettifyName: function () {
             var prettifyColumnName = function (input, split) {
                 var temp = input.split(split);
                 if (temp[1] && temp[1] != "") {
@@ -11,6 +11,9 @@
             }
 
             return function (input) {
+            	if(!input)
+            		return '';
+            
                 var retVal;
                 if (input.indexOf("_cd_") > 0) {
                     retVal = prettifyColumnName(input, "_cd_");
@@ -21,13 +24,19 @@
                 } else if (input.indexOf("_cv") > 0) {
                     retVal = prettifyColumnName(input, "_cv");
                 } else {
-                    retVal = input;
+                	retVal = input;
                 }
-                return retVal;
+                
+                var arr = retVal.split(/[_]/);
+			    var newStr = "";
+			    for (var i = 1; i < arr.length; i++) {
+			        newStr += " "+ arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+			    }
+			    return arr[0].charAt(0).toUpperCase() + arr[0].slice(1) + newStr;
             }
         }
     });
-    mifosX.ng.application.filter('prettifyDataTableColumn', ['dateFilter', mifosX.filters.prettifyDataTableColumn]).run(function ($log) {
-        $log.info("PrettifyDataTableColumn filter initialized");
+    mifosX.ng.application.filter('prettifyName', ['dateFilter', mifosX.filters.prettifyName]).run(function ($log) {
+        $log.info("prettifyName filter initialized");
     });
 }(mifosX.filters || {}));

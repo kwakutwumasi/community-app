@@ -86,7 +86,7 @@
         </div>
     </form>
         </wz-step>
-        <wz-step ng-if="isEntityDatatables" ng-repeat="datatable in datatables" wz-title="{{datatable.registeredTableName}}">
+        <wz-step ng-if="isEntityDatatables" ng-repeat="datatable in datatables" wz-title="{{datatable.registeredTableName | prettifyName}}">
             <div class="card-content">
                 <form class="card form-horizontal well">
                     <div ng-show="submittedDatatables.length>0" uib-alert type="success">
@@ -94,9 +94,9 @@
                     </div>
                     <api-validate></api-validate>
                     <fieldset>
-                        <legend>{{datatable.registeredTableName}}</legend>
+                        <legend>{{datatable.registeredTableName | prettifyName}}</legend>
                         <div class="form-group" ng-repeat="columnHeader in datatable.columnHeaders">
-                            <label class="control-label col-sm-3">{{ columnHeader.columnName | prettifyDataTableColumn }}
+                            <label class="control-label col-sm-3">{{ columnHeader.columnName | prettifyName }}
                                 <span ng-show="!columnHeader.isColumnNullable" class="required">*</span>
                             </label>
                             <div class="col-sm-3">

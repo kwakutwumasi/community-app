@@ -2,7 +2,7 @@
         <ul class="breadcrumb">
             <li><a href="#/system">{{'label.anchor.system' | translate}}</a></li>
             <li><a href="#/datatables">{{'label.anchor.managedatatables' | translate}}</a></li>
-            <li><a href="#/viewdatatable/{{datatable.registeredTableName}}">{{datatable.registeredTableName}}</a></li>
+            <li><a href="#/viewdatatable/{{datatable.registeredTableName}}">{{datatable.registeredTableName | prettifyName}}</a></li>
             <li class="active">{{'label.anchor.editdatatable' | translate}}</li>
         </ul>
     <div class="card">
@@ -19,7 +19,7 @@
                                     class="required">*</span></label>
 
                             <div class="col-sm-3">
-                                <input id="registeredTableName" type="text" value="{{datatable.registeredTableName}}" class="form-control" readonly>
+                                <input id="registeredTableName" type="text" value="{{datatable.registeredTableName | prettifyName}}" class="form-control" readonly>
                             </div>
                         </div>
                         <div class="form-group">
@@ -43,7 +43,7 @@
                             <div class="row">
                                 <div class="col-sm-3">
                                     <input name="columnname" ng-model="datatableTemplate.columnName" type="text"
-                                           placeholder="{{'label.input.columnname' | translate}}" class="form-control"/>
+                                           placeholder="{{'label.input.columnname' | translate}}" class="form-control" format-datatable-name/>
                                 </div>
                                 <div class="col-sm-3">
                                     <select ng-model="datatableTemplate.columnType" class="form-control">&nbsp;&nbsp;
@@ -94,12 +94,12 @@
                                             <td>
                                                 <input ng-model="column.name" class="input-sm form-control" type="text"
                                                        placeholder="{{'label.input.columnname' | translate}}"
-                                                       ng-readonly="column.originalName"/>
+                                                       ng-readonly="column.originalName" format-datatable-name/>
                                             </td>
                                             <td class="paddedleft0">
                                                 <input ng-model="column.newName" class="input-sm form-control" type="text"
                                                        placeholder="{{'label.input.columnname' | translate}}"
-                                                       ng-show="column.originalName"/>
+                                                       ng-show="column.originalName" format-datatable-name />
                                             </td>
                                             <td class="paddedleft0">
                                                 <select ng-model="column.type" required="required" class="input-sm form-control"
@@ -123,13 +123,13 @@
                                             </td>
                                             <td class="paddedleft0">
                                                 <select ng-show="column.type == 'dropdown'" ng-model="column.code"
-                                                        ng-options="code.name as code.name for code in codes" value="{{code.name}}"
+                                                        ng-options="code.name as code.name | translate for code in codes" value="{{code.name}}"
                                                         class="input-sm form-control" ng-disabled="column.originalName"/>
                                             </td>
                                             <td class="paddedleft0">
                                                 <select ng-show="column.type == 'dropdown'" ng-disabled="!column.originalName"
                                                         ng-model="column.newCode"
-                                                        ng-options="code.name as code.name for code in codes" value="{{code.name}}"
+                                                        ng-options="code.name as code.name | translate for code in codes" value="{{code.name}}"
                                                         class="input-sm form-control"/>
                                             </td>
                                             <td class="paddedleft0" align="center"><a ng-click="removeColumn($index)"><i
