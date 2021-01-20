@@ -73,7 +73,7 @@
                                             <option value="">{{'label.all' | translate}}</option>
                                             <option value="">--{{'label.selectaction' | translate}}--</option>
                                             <option ng-repeat="action in checkerTemplate.actionNames"
-                                                    value="{{action}}">{{action}}
+                                                    value="{{action}}">{{action | translate}}
                                             </option>
                                         </select>
                                     </div>
@@ -84,7 +84,7 @@
                                             <option value="">{{'label.all' | translate}}</option>
                                             <option value="">--{{'label.selectaction' | translate}}--</option>
                                             <option ng-repeat="entity in checkerTemplate.entityNames"
-                                                    value="{{entity}}">{{entity}}
+                                                    value="{{entity}}">{{entity | translate}}
                                             </option>
                                         </select>
                                     </div>
@@ -153,11 +153,11 @@
                                         <td class="pointer" data-ng-click="routeTo(data.id)">{{data.madeOnDate |
                                             DateFormat}}
                                         </td>
-                                        <td class="pointer" data-ng-click="routeTo(data.id)">{{data.processingResult}}
+                                        <td class="pointer" data-ng-click="routeTo(data.id)">{{data.processingResult | translate}}
                                         </td>
                                         <td class="pointer" data-ng-click="routeTo(data.id)">{{data.maker}}</td>
-                                        <td class="pointer" data-ng-click="routeTo(data.id)">{{data.actionName}}</td>
-                                        <td class="pointer" data-ng-click="routeTo(data.id)">{{data.entityName}}</td>
+                                        <td class="pointer" data-ng-click="routeTo(data.id)">{{data.actionName | translate}}</td>
+                                        <td class="pointer" data-ng-click="routeTo(data.id)">{{data.entityName | translate}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
