@@ -17,7 +17,7 @@
 
                         <div class="col-sm-3">
                             <select chosen="accountTypeOptions" id="accountType" ng-model="formData.accountType" name="accountType"  class="form-control"
-                                    ng-options="accountType.id as accountType.value for accountType in accountTypeOptions" value="{{accountType.id}}"
+                                    ng-options="accountType.id as accountType.value | translate for accountType in accountTypeOptions" value="{{accountType.id}}"
                                     ng-change="getPrefixTypeOptions(formData.accountType)" required late-validate>
                                 <option value="">--{{'label.menu.selectAccountType' | translate}}--</option>
                             </select>
@@ -36,7 +36,7 @@
                         <label class="control-label col-sm-2">{{'label.input.prefixField' | translate}}</label>
                         <div class="col-sm-3">
                             <select chosen="prefixTypeOptions" id="accountNumberPrefixType" ng-model="formData.prefixType"  class="form-control"
-                                    ng-options="accountNumberPrefixType.id as accountNumberPrefixType.value for accountNumberPrefixType in prefixTypeOptions" value="{{accountType.id}}">
+                                    ng-options="accountNumberPrefixType.id as accountNumberPrefixType.value | translate for accountNumberPrefixType in prefixTypeOptions" value="{{accountType.id | translate}}">
                                 <option value="">--{{'label.menu.selectPrefixField' | translate}}--</option>
                             </select>
                         </div>
