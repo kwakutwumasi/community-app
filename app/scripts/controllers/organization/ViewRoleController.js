@@ -115,9 +115,7 @@
                         backupCheckValues();// reload current data in array (backup)
                         checkboxesChanged = false; // user finished editing - set flag to false
                         scope.isDisabled = true;
-
                     });
-
                 };
 
                 scope.showPermissions = function (grouping) {
@@ -129,29 +127,6 @@
                 };
                 //by default show special permissions
                 scope.showPermissions('special');
-
-                scope.permissionName = function (name) {
-                    name = name || "";
-                    //replace '_' with ' '
-                    name = name.replace(/_/g, " ");
-                    //for reorts replace read with view
-                    if (scope.previousGrouping == 'report') {
-                        name = name.replace(/READ/g, "View");
-                    }
-                    return name;
-                };
-
-                scope.formatName = function (string) {
-                    if (string.indexOf('portfolio_') > -1) {
-                        string = string.replace("portfolio_", "");
-                    }
-                    if (string.indexOf('transaction_') > -1) {
-                        var temp = string.split("_");
-                        string = temp[1] + " " + temp[0].charAt(0).toUpperCase() + temp[0].slice(1) + "s";
-                    }
-                    string = string.charAt(0).toUpperCase() + string.slice(1);
-                    return string;
-                };
 
                 scope.selectAll = function(allSelected)
                 {
